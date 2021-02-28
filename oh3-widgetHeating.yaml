@@ -552,9 +552,9 @@ slots:
                                                                           text: =loop.buttonlabel
                                                                           outline: true
                                                                           action: command
-                                                                          active: "=(items[props.heatingModeItem].state === loop.buttonlabel ? true : false)"
+                                                                          active: "=props.heatingModeItem ? (items[props.heatingModeItem].state === loop.buttonlabel ? true : false) : ''"
                                                                           actionCommand: =loop.buttonlabel
-                                                                          actionItem: =props.heatingModeItem
+                                                                          actionItem: "=props.heatingModeItem ? props.heatingModeItem : ''"
                             - component: f7-block
                               config:
                                 class: buttonContainer
@@ -633,9 +633,9 @@ slots:
                                                                           text: =loop.buttonlabel
                                                                           outline: true
                                                                           action: command
-                                                                          active: "=(items[props.exampleModeItem].state === loop.buttonlabel ? true : false)"
+                                                                          active: "=props.exampleModeItem ? (items[props.exampleModeItem].state === loop.buttonlabel ? true : false) : ''"
                                                                           actionCommand: =loop.buttonlabel
-                                                                          actionItem: =props.exampleModeItem
+                                                                          actionItem: "=props.exampleModeItem ? props.exampleModeItem : ''"
                             - component: oh-button
                               config:
                                 style:
