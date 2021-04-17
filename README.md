@@ -11,9 +11,13 @@ There are some notes, tips and changelogs.
 
 ![alt text](https://community-openhab-org.s3.dualstack.eu-central-1.amazonaws.com/original/3X/7/6/76e1d24beebcce8de1fdbe38dffb34881d3d3c27.gif)
 
-## Heating-Mode and Example-Mode Popover
 
-![grafik](https://user-images.githubusercontent.com/79790877/115108306-fc6b2a80-9f6f-11eb-99e9-822b29260d6c.png)
+![grafik](https://user-images.githubusercontent.com/79790877/115108345-46541080-9f70-11eb-9056-149b0bf51947.png) 
+![grafik](https://user-images.githubusercontent.com/79790877/115108359-54099600-9f70-11eb-8d51-a36d07cd792f.png)
+![grafik](https://user-images.githubusercontent.com/79790877/115108365-5d92fe00-9f70-11eb-922d-404f7cb864d3.png)
+
+
+## Heating-Mode and Example-Mode Popover
 
 ![20210417_110356](https://user-images.githubusercontent.com/79790877/115108218-823aa600-9f6f-11eb-80ed-999bb4b83c85.gif)
 
