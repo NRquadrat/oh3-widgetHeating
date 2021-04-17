@@ -1,59 +1,56 @@
-uid: widget_HeatingCSS_1.8.1
+uid: widget_HeatingCSS_2.0.0
 tags: []
 props:
   parameters:
-    - description: eg. living room
-      label: location and widget identifier
-      name: location
-      required: true
-      type: TEXT
-    - description: Visual size of the control in px (default 400px), without a size the design is responsive
-      label: size [px]
-      name: size
-      required: false
-      type: TEXT
-    - description: Minimum value
-      label: minTemp
-      name: minTemp
-      required: true
-      type: TEXT
-    - description: Maximum value
-      label: maxTemp
-      name: maxTemp
-      required: true
     - context: item
       description: Item to control
-      label: Set point Item
+      label: Setpoint Item
       name: setPointItem
       required: true
       type: TEXT
+      groupName: mainItems
     - context: item
       label: Item for current temperature
       name: currentPointItem
       required: true
       type: TEXT
+      groupName: mainItems
+    - context: item
+      description: Humidity Item [Number-Item]
+      label: Humidity Item
+      name: humItem
+      required: false
+      type: TEXT
+      groupName: mainItems
+    - description: eg. living room
+      label: location and widget identifier
+      name: location
+      required: true
+      type: TEXT
+      groupName: generalSettings
+    - description: Minimum value
+      label: minTemp
+      name: minTemp
+      required: true
+      type: TEXT
+      groupName: generalSettings
+    - description: Maximum value
+      label: maxTemp
+      name: maxTemp
+      required: true
+      groupName: generalSettings
+    - description: Visual size of the control in px (default 400px), without a size the design is responsive
+      label: size [px]
+      name: size
+      required: false
+      type: TEXT
+      groupName: generalSettings
     - description: Control item unit eg °C
       label: unit
       name: unit
       required: false
       type: TEXT
-    - description: URL or path to a Image (if you use a local img eg. -> http://local-IP-Adress:8080/static/folder/img.svg )
-      label: URL or path to image
-      name: imgUrl
-      required: false
-      type: TEXT
-      advanced: true
-    - description: Heating mode strings as array eg. AUTO,MANU,OFF. The string will be send to the Heating-Mode-Item [String-Item]
-      label: Heating Mode Array
-      name: heatingModeArray
-      required: false
-      type: TEXT
-      advanced: true
-    - description: Example Mode Strings as Array eg. OFF,ON,BOOST. The string will be send to the Example-Mode-Item [String-Item]
-      label: Example Mode Array
-      name: exampleModeArray
-      required: false
-      type: TEXT
+      groupName: generalSettings
       advanced: true
     - context: item
       description: Heating Mode Item [String-Item]
@@ -61,6 +58,14 @@ props:
       name: heatingModeItem
       required: false
       type: TEXT
+      groupName: extensionItems
+      advanced: true
+    - description: Heating mode strings as array eg. AUTO,MANU,OFF. The string will be send to the Heating-Mode-Item [String-Item]
+      label: Heating Mode Array
+      name: heatingModeArray
+      required: false
+      type: TEXT
+      groupName: extensionItems
       advanced: true
     - context: item
       description: Example Mode Item [String-Item] (eg. State of heating valve)
@@ -68,33 +73,90 @@ props:
       name: exampleModeItem
       required: false
       type: TEXT
+      groupName: extensionItems
+      advanced: true
+    - description: Example Mode Strings as Array eg. OFF,ON,BOOST. The string will be send to the Example-Mode-Item [String-Item]
+      label: Example Mode Array
+      name: exampleModeArray
+      required: false
+      type: TEXT
+      groupName: extensionItems
       advanced: true
     - context: item
-      description: Valve Item [Switch-Item] (eg. State of heating valve) for Animation
+      description: Valve/Alarm Item [Switch-Item] (eg. State of heating valve) for Animation in the center of the widget
       label: Valve Item
       name: valveItem
       required: false
       type: TEXT
+      groupName: extensionItems
       advanced: true
-    - label: Custom font-size current&set-point marker (eg. 1em)
+    - context: item
+      description: Extension Item 1 eg. Battery-State [Number-Item]
+      label: Extension Item 1
+      name: extensionItem1
+      required: false
+      type: TEXT
+      groupName: extensionItems
+      advanced: true
+    - description: Choose the F7-Icons for the Extension Item 1 as Array. -> <battery_100,battery_25,battery_0>. 1st Icon = Value > 75, 2nd Icon = Value > 25, 3th Icon = Value < 25
+      label: Extension Item 1 F7-Icon
+      name: extensionItem1Icon
+      required: false
+      type: TEXT
+      groupName: extensionItems
+      advanced: true
+    - context: item
+      description: Extension Item 2 eg. Battery-State [Number-Item]
+      label: Extension Item 2
+      name: extensionItem2
+      required: false
+      type: TEXT
+      groupName: extensionItems
+      advanced: true
+    - description: Choose the F7-Icons for the Extension Item 2 F7-Icon as Array. -> <battery_100,battery_25,battery_0>. 1st Icon = Value > 75, 2nd Icon = Value > 25, 3th Icon = Value < 25
+      label: F7-Icon for the Extension Item 2
+      name: extensionItem2Icon
+      required: false
+      type: TEXT
+      groupName: extensionItems
+      advanced: true
+    - description: URL or path to a Image (if you use a local img eg. -> http://local-IP-Adress:8080/static/folder/img.svg )
+      label: URL or path to image
+      name: imgUrl
+      required: false
+      type: TEXT
+      groupName: moreDesign
+      advanced: true
+    - description: eg. default 1em
+      label: Custom font-size current&set-point marker
       name: fontSizeMarker
       required: false
       type: TEXT
       groupName: fonts
       advanced: true
-    - label: Custom font-Size center (eg. 2em)
+    - description: eg. default 2em
+      label: Custom font-Size center
       name: fontSizeCenter
       required: false
       type: TEXT
       groupName: fonts
       advanced: true
-    - label: Custom font-Size buttons (eg. 1.8em)
+    - description: default 1em for eg. Living Room
+      label: Custom font-size location label
+      name: fontSizeLocation
+      required: false
+      type: TEXT
+      groupName: fonts
+      advanced: true
+    - description: default eg. 1.8em
+      label: Custom font-Size buttons
       name: fontSizeButtons
       required: false
       type: TEXT
       groupName: fonts
       advanced: true
-    - label: Custom font-Size footer (eg. 1em)
+    - description: default 1em for Heating-Label in bottom of the widget
+      label: Custom font-Size footer
       name: fontSizeFooter
       required: false
       type: TEXT
@@ -154,15 +216,102 @@ props:
       type: TEXT
       groupName: colors
       advanced: true
+    - description: Control if the Chart is visible
+      label: Chart Swtich
+      name: chartSwitch
+      required: false
+      type: BOOLEAN
+      groupName: chartSettings
+    - description: currently not possible -> The minimun value of axis. (eg. 10.5)
+      label: yAxis min
+      name: yAxisMin
+      required: false
+      type: TEXT
+      groupName: chartSettings
+      advanced: true
+    - description: currently not possible -> The maximum value of axis. (eg. 30.5)
+      label: yAxis max
+      name: yAxisMax
+      required: false
+      type: TEXT
+      groupName: chartSettings
+      advanced: true
   parameterGroups:
+    - name: mainItems
+      label: Main Items (setpoint-temperature, current temperature, humidity)
+    - name: advancedItems
+      label: Advanced Items (Battery-State, ...)
+    - name: generalSettings
+      label: General Settings
+    - name: extensionItems
+      label: Extension Items
+    - name: moreDesign
+      label: More Design Options
     - name: colors
-      label: Color-Settings
+      label: Color Settings
     - name: fonts
-      label: Font-Settings
-timestamp: Feb 22, 2021, 12:22:59 PM
+      label: Font Settings
+    - name: chartSettings
+      label: Chart Settings
+timestamp: Apr 14, 2021, 9:31:45 PM
 component: f7-card
 config:
   title: "=(props.location) ? 'Klima ' + props.location : ''"
+  stylesheet: >
+    .mylink {
+      #background-color: blue !important;
+      animation-name: example;
+      animation-duration: 4s;
+    } .mylink#####:hover {
+      text-decoration: underline !important;
+      transform: scale(1.5);
+      transition: 0.3s all;
+    }
+
+
+
+    @keyframes example {
+      0%   {background-color: red;}
+      25%  {background-color: yellow;}
+      50%  {background-color: blue;}
+      100% {background-color: green;}
+    }
+
+
+    .thermostat {
+      flex-shrink: 0;
+      --f7-block-margin-vertical: 0px;
+      --f7-block-padding-vertical: 0px;
+      --f7-block-padding-horizontal: 0px;
+      padding-left: 0px;
+      border-radius: 50%;
+      box-sizing: content-box;
+      border: 2px solid rgb(64, 60, 77);
+      }
+    .thermostat .bar {
+      margin-top: 0px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;    
+    } .thermostat .bar .inner_bar {
+      margin-top: 0; 
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 100%;
+      z-index: 4 !important;    
+    } .thermostat .bar .inner_bar .block {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 50%;
+      transform: translate(-50%);
+    }    
 slots:
   default:
     - component: f7-card-content
@@ -180,61 +329,33 @@ slots:
                   config:
                     class: thermostat
                     style:
-                      flex-shrink: 0
-                      --f7-block-margin-vertical: 0px
-                      --f7-block-padding-vertical: 0px
-                      --f7-block-padding-horizontal: 0px
-                      padding-left: 0px
                       padding-top: "=props.size ? props.size + 'px': '100%'"
                       width: "=props.size ? Number(props.size)+'px' : '100%'"
                       background: "=props.colorThermostat ? props.colorThermostat : 'var(--f7-toggle-inactive-color)'"
-                      border-radius: 50%
-                      box-sizing: content-box
-                      border: 2px solid rgb(64, 60, 77)
                   slots:
                     default:
                       - component: f7-block
                         config:
                           class: bar
                           style:
-                            margin-top: 0px
-                            position: absolute
                             width: "=props.size ? (Number(props.size)*0.89) +'px' : '89%'"
                             height: "=props.size ? (Number(props.size)*0.89) +'px' : '89%'"
-                            top: 50%
-                            left: 50%
-                            transform: translate(-50%, -50%)
-                            border-radius: 50%
                         slots:
                           default:
                             - component: f7-block
                               config:
                                 class: inner_bar
                                 style:
-                                  margin-top: 0
-                                  position: absolute
-                                  top: 50%
-                                  left: 50%
-                                  transform: translate(-50%, -50%)
                                   width: "=props.size ? (Number(props.size)*0.86) +'px' : '97%'"
                                   height: "=props.size ? (Number(props.size)*0.86) +'px' : '97%'"
-                                  border-radius: 100%
                                   background-color: "=props.colorThermostat ? props.colorThermostat : 'var(--f7-toggle-inactive-color)'"
-                                  z-index: 4 !important
                               slots:
                                 default:
                                   - component: f7-block
                                     config:
                                       style:
                                         background: "='conic-gradient(transparent 0deg 160deg, ' + (props.colorThermostat ? props.colorThermostat : 'var(--f7-toggle-inactive-color)') + ' 160deg 200deg, transparent 200deg 360deg)'"
-                                        content: ""
-                                        display: block
-                                        position: absolute
-                                        width: 100%
-                                        height: 100%
                                         bottom: "=props.size ? '-7px' : '-7px'"
-                                        left: 50%
-                                        transform: translate(-50%)
                             - component: f7-block
                               config:
                                 class: hold left
@@ -472,285 +593,573 @@ slots:
                             box-shadow: 0px 15px 35px 11px rgba(46, 44, 58,0.60)
                         slots:
                           default:
-                            
-                              
-                            - component: f7-block
+                            - component: f7-swiper
                               config:
-                                class: buttonContainer
+                                pagination: true
+                                scrollbar: false
+                                params:
+                                  slidesPerView: 1
+                                  direction: horizontal
+                                  mousewheel: true
                                 style:
-                                  display: "=props.heatingModeItem ? '' : 'none'"
-                                  margin-top: 0px
-                                  position: absolute
-                                  top: 50%
-                                  left: 50%
-                                  transform: "=props.exampleModeItem ? 'translate(-50%, -50%) rotate(30deg)' : 'translate(-50%, -50%)'"
-                                  width: "=props.size ? (Number(props.size)*0.15) +'px' : '15%'"
-                                  height: 100%
-                                  text-align: center
-                                  transition: 0.7s ease
-                                  opacity: 1
-                                  z-index: 99 !important
-                              slots:
-                                default:
-                                  - component: oh-button
-                                    config:
-                                      popoverOpen: ='.' + props.location + '.popoverHeatingMode'
-                                      style:
-                                        width: 100%
-                                        height: 20%
-                                        position: absolute
-                                        bottom: 0%
-                                        left: 50%
-                                        transform: translate(-50%)
-                                        color: "=props.colorButton ? props.colorButton + ' !important': ''"
-                                    slots:
-                                      default:
-                                        - component: f7-icon
-                                          config:
-                                            f7: "=props.heatingModeItem ? (items[props.heatingModeItem].state ==  props.heatingModeArray.split(',')[0] ? 'hand_raised' : items[props.heatingModeItem].state == props.heatingModeArray.split(',')[1] ? 'arrow_2_squarepath' : items[props.heatingModeItem].state == props.heatingModeArray.split(',')[2] ? 'airplane' : 'thermometer') : ''"
-                                            style:
-                                              font-size: "=props.fontSizeButtons ? props.fontSizeButtons : '2em'"
-                                              position: absolute
-                                              transform: translate(-50%, -50%)
-                                              top: 50%
-                                              margin-top: auto
-                                        - component: f7-popover
-                                          config:
-                                            class: =props.location + ' popoverHeatingMode'
-                                          slots:
-                                            default:
-                                              - component: f7-card
-                                                config:
-                                                  noShadow: true
-                                                  class:
-                                                    - popover-close
-                                                  action: variable
-                                                  actionVariable: myVar
-                                                  clearVariable: true
-                                                  actionVariableValue: success
-                                                slots:
-                                                  default:
-                                                    - component: f7-row
-                                                      config: {}
-                                                      slots:
-                                                        default:
-                                                          - component: f7-col
-                                                            slots:
-                                                              default:
-                                                                - component: oh-repeater
-                                                                  config:
-                                                                    for: buttonlabel
-                                                                    in: =props.heatingModeArray.split(",")
-                                                                    containerStyle:
-                                                                      width: 100%
-                                                                  slots:
-                                                                    default:
-                                                                      - component: oh-button
-                                                                        config:
-                                                                          color: "=props.colorButton ? props.colorButton : ''"
-                                                                          class: margin
-                                                                          text: =loop.buttonlabel
-                                                                          outline: true
-                                                                          action: command
-                                                                          active: "=props.heatingModeItem ? (items[props.heatingModeItem].state === loop.buttonlabel ? true : false) : ''"
-                                                                          actionCommand: =loop.buttonlabel
-                                                                          actionItem: "=props.heatingModeItem ? props.heatingModeItem : ''"
-                            - component: f7-block
-                              config:
-                                class: buttonContainer
-                                style:
-                                  display: "=props.exampleModeItem ? '' : 'none'"
-                                  margin-top: 0px
-                                  position: absolute
-                                  top: 50%
-                                  left: 50%
-                                  transform: "=props.heatingModeItem ? 'translate(-50%, -50%) rotate(-30deg)' : 'translate(-50%, -50%)'"
-                                  width: "=props.size ? (Number(props.size)*0.15) +'px' : '15%'"
-                                  height: 100%
-                                  text-align: center
-                                  transition: 0.7s ease
-                                  opacity: 1
-                                  z-index: 99 !important
-                              slots:
-                                default:
-                                  - component: oh-button
-                                    config:
-                                      popoverOpen: ='.' + props.location + '.popoverExampleMode'
-                                      style:
-                                        width: 100%
-                                        height: 20%
-                                        position: absolute
-                                        bottom: 0%
-                                        left: 50%
-                                        transform: translate(-50%)
-                                        color: "=props.colorButton ? props.colorButton + ' !important': ''"
-                                    slots:
-                                      default:
-                                        - component: f7-icon
-                                          config:
-                                            f7: wrench
-                                            style:
-                                              font-size: "=props.fontSizeButtons ? props.fontSizeButtons : '2em'"
-                                              position: absolute
-                                              transform: translate(-50%, -50%)
-                                              top: 50%
-                                              margin-top: auto
-                                        - component: f7-popover
-                                          config:
-                                            class: =props.location + ' popoverExampleMode'
-                                          slots:
-                                            default:
-                                              - component: f7-card
-                                                config:
-                                                  noShadow: true
-                                                  class:
-                                                    - popover-close
-                                                  action: variable
-                                                  actionVariable: myVar
-                                                  clearVariable: true
-                                                  actionVariableValue: success
-                                                slots:
-                                                  default:
-                                                    - component: f7-row
-                                                      config: {}
-                                                      slots:
-                                                        default:
-                                                          - component: f7-col
-                                                            slots:
-                                                              default:
-                                                                - component: oh-repeater
-                                                                  config:
-                                                                    for: buttonlabel
-                                                                    in: =props.exampleModeArray.split(",")
-                                                                    containerStyle:
-                                                                      width: 100%
-                                                                  slots:
-                                                                    default:
-                                                                      - component: oh-button
-                                                                        config:
-                                                                          color: "=props.colorButton ? props.colorButton : ''"
-                                                                          class: margin
-                                                                          text: =loop.buttonlabel
-                                                                          outline: true
-                                                                          action: command
-                                                                          active: "=props.exampleModeItem ? (items[props.exampleModeItem].state === loop.buttonlabel ? true : false) : ''"
-                                                                          actionCommand: =loop.buttonlabel
-                                                                          actionItem: "=props.exampleModeItem ? props.exampleModeItem : ''"
-                            - component: oh-button
-                              config:
-                                style:
-                                  width: 30%
-                                  height: 50%
-                                  position: absolute
-                                  margin-top: 0px
-                                  top: 50%
-                                  left: 10%
-                                  transform: translate(-50%, -50%)
-                                  color: "=props.colorButton ? props.colorButton : ''"
-                                action: command
-                                actionItem: =props.setPointItem
-                                actionCommand: "=Number(items[props.setPointItem].state.split(' ')[0]) > Number(props.minTemp) ? Number(items[props.setPointItem].state.split(' ')[0]) - 0.5 : ''"
-                              slots:
-                                default:
-                                  - component: f7-icon
-                                    config:
-                                      style:
-                                        font-size: "=props.fontSizeButtons ? props.fontSizeButtons : '2em'"
-                                        position: absolute
-                                        transform: translate(-50%, -50%)
-                                        top: 50%
-                                        margin-top: auto
-                                      f7: arrow_turn_left_down
-                            - component: oh-button
-                              config:
-                                style:
-                                  width: 30%
-                                  height: 50%
-                                  position: relative
-                                  margin-top: 0px
-                                  top: 50%
-                                  left: 90%
-                                  transform: translate(-50%, -50%)
-                                  color: "=props.colorButton ? props.colorButton : ''"
-                                action: command
-                                actionItem: =props.setPointItem
-                                actionCommand: "=Number(items[props.setPointItem].state.split(' ')[0]) < Number(props.maxTemp) ? Number(items[props.setPointItem].state.split(' ')[0]) + 0.5 : ''"
-                              slots:
-                                default:
-                                  - component: f7-icon
-                                    config:
-                                      style:
-                                        font-size: "=props.fontSizeButtons ? props.fontSizeButtons : '2em'"
-                                        position: absolute
-                                        transform: translate(-50%, -50%)
-                                        top: 50%
-                                        margin-top: auto
-                                      f7: arrow_turn_right_up
-                            - component: f7-block
-                              config:
-                                class: valveAnimation
-                                style:
-                                  z-index: -100 !important
-                                  pointer-events: none
-                                  display: "=(props.valveItem && items[props.valveItem].state == 'ON' )? '' : 'none'"
-                                  background: "=props.colorSetMarker ? 'radial-gradient(' + props.colorSetMarker +' 30%, transparent 50%)' : 'radial-gradient(var(--f7-theme-color) 30%, transparent 50%)'"
-                                  margin-top: 0px
-                                  position: absolute
-                                  transform: translate(-50%, -50%)
                                   width: 100%
                                   height: 100%
-                                  top: 50%
-                                  left: 50%
-                                  border-radius: 50%
-                                  animation: skeleton-effect-fade 2s linear infinite
-                            - component: f7-block
-                              config:
-                                class: small
-                                style:
-                                  z-index: 100 !important
-                                  margin-top: 0px
                                   position: absolute
-                                  width: "=props.size ? (Number(props.size)*0.375) +'px' : '57.6%'"
-                                  height: "=props.size ? (Number(props.size)*0.375) +'px' : '57.6%'"
-                                  background: "=props.colorCenter ? props.colorCenter : 'rgb(248, 249, 250)'"
-                                  text-align: center
-                                  animation: bound-in-small 0.6s ease forwards
                                   top: 50%
                                   left: 50%
                                   transform: translate(-50%, -50%)
                                   border-radius: 50%
-                                  box-shadow: 0px 5px 10px 5px rgba(96, 93, 111,0.19)
                               slots:
                                 default:
-                                  - component: f7-block
+                                  - component: f7-swiper-slide
                                     config:
-                                      class: heat
                                       style:
-                                        font-size: "=props.size ? (Number(props.size)*0.0375) +'px' : '14px'"
-                                        color: "=props.colorTypo ? props.colorTypo : 'rgb(87, 84, 95)'"
-                                        font-weight: 300
+                                        width: 100%
+                                        height: 100%
                                     slots:
                                       default:
-                                        - component: Label
+                                        - component: f7-block
                                           config:
-                                            text: =props.location
-                                  - component: f7-block
+                                            class: page
+                                            style:
+                                              background: transparent
+                                              margin-top: 0px
+                                              position: absolute
+                                              width: 100%
+                                              height: 100%
+                                              top: 50%
+                                              left: 50%
+                                              transform: translate(-50%, -50%)
+                                              border-radius: 50%
+                                          slots:
+                                            default:
+                                              - component: f7-block
+                                                config:
+                                                  class: buttonContainer
+                                                  style:
+                                                    display: "=props.heatingModeItem ? '' : 'none'"
+                                                    margin-top: 0px
+                                                    position: absolute
+                                                    top: 50%
+                                                    left: 50%
+                                                    transform: "=props.exampleModeItem ? 'translate(-50%, -50%) rotate(30deg)' : 'translate(-50%, -50%)'"
+                                                    width: "=props.size ? (Number(props.size)*0.15) +'px' : '15%'"
+                                                    height: 100%
+                                                    text-align: center
+                                                    transition: 0.7s ease
+                                                    opacity: 1
+                                                    z-index: 99 !important
+                                                slots:
+                                                  default:
+                                                    - component: oh-button
+                                                      config:
+                                                        popoverOpen: ='.' + props.location + '.popoverHeatingMode'
+                                                        style:
+                                                          width: 100%
+                                                          height: 20%
+                                                          position: absolute
+                                                          bottom: 0%
+                                                          left: 50%
+                                                          transform: translate(-50%)
+                                                          color: "=props.colorButton ? props.colorButton + ' !important': ''"
+                                                      slots:
+                                                        default:
+                                                          - component: f7-icon
+                                                            config:
+                                                              f7: "=props.heatingModeItem ? (items[props.heatingModeItem].state ==  props.heatingModeArray.split(',')[0] ? 'hand_raised' : items[props.heatingModeItem].state == props.heatingModeArray.split(',')[1] ? 'arrow_2_squarepath' : items[props.heatingModeItem].state == props.heatingModeArray.split(',')[2] ? 'airplane' : 'thermometer') : ''"
+                                                              style:
+                                                                font-size: "=props.fontSizeButtons ? props.fontSizeButtons : '2em'"
+                                                                position: absolute
+                                                                transform: translate(-50%, -50%)
+                                                                top: 50%
+                                                                margin-top: auto
+                                                          - component: f7-popover
+                                                            config:
+                                                              class: =props.location + ' popoverHeatingMode'
+                                                            slots:
+                                                              default:
+                                                                - component: f7-card
+                                                                  config:
+                                                                    noShadow: true
+                                                                    class:
+                                                                      - popover-close
+                                                                    action: variable
+                                                                    actionVariable: myVar
+                                                                    clearVariable: true
+                                                                    actionVariableValue: success
+                                                                  slots:
+                                                                    default:
+                                                                      - component: f7-row
+                                                                        config: {}
+                                                                        slots:
+                                                                          default:
+                                                                            - component: f7-col
+                                                                              slots:
+                                                                                default:
+                                                                                  - component: oh-repeater
+                                                                                    config:
+                                                                                      for: buttonlabel
+                                                                                      in: =props.heatingModeArray.split(",")
+                                                                                      containerStyle:
+                                                                                        width: 100%
+                                                                                    slots:
+                                                                                      default:
+                                                                                        - component: oh-button
+                                                                                          config:
+                                                                                            color: "=props.colorButton ? props.colorButton : ''"
+                                                                                            class: margin
+                                                                                            text: =loop.buttonlabel
+                                                                                            outline: true
+                                                                                            action: command
+                                                                                            active: "=props.heatingModeItem ? (items[props.heatingModeItem].state === loop.buttonlabel ? true : false) : ''"
+                                                                                            actionCommand: =loop.buttonlabel
+                                                                                            actionItem: "=props.heatingModeItem ? props.heatingModeItem : ''"
+                                              - component: f7-block
+                                                config:
+                                                  class: buttonContainer
+                                                  style:
+                                                    display: "=props.exampleModeItem ? '' : 'none'"
+                                                    margin-top: 0px
+                                                    position: absolute
+                                                    top: 50%
+                                                    left: 50%
+                                                    transform: "=props.heatingModeItem ? 'translate(-50%, -50%) rotate(-30deg)' : 'translate(-50%, -50%)'"
+                                                    width: "=props.size ? (Number(props.size)*0.15) +'px' : '15%'"
+                                                    height: 100%
+                                                    text-align: center
+                                                    transition: 0.7s ease
+                                                    opacity: 1
+                                                    z-index: 99 !important
+                                                slots:
+                                                  default:
+                                                    - component: oh-button
+                                                      config:
+                                                        popoverOpen: ='.' + props.location + '.popoverExampleMode'
+                                                        style:
+                                                          width: 100%
+                                                          height: 20%
+                                                          position: absolute
+                                                          bottom: 0%
+                                                          left: 50%
+                                                          transform: translate(-50%)
+                                                          color: "=props.colorButton ? props.colorButton + ' !important': ''"
+                                                      slots:
+                                                        default:
+                                                          - component: f7-icon
+                                                            config:
+                                                              f7: wrench
+                                                              style:
+                                                                font-size: "=props.fontSizeButtons ? props.fontSizeButtons : '2em'"
+                                                                position: absolute
+                                                                transform: translate(-50%, -50%)
+                                                                top: 50%
+                                                                margin-top: auto
+                                                          - component: f7-popover
+                                                            config:
+                                                              class: =props.location + ' popoverExampleMode'
+                                                            slots:
+                                                              default:
+                                                                - component: f7-card
+                                                                  config:
+                                                                    noShadow: true
+                                                                    class:
+                                                                      - popover-close
+                                                                    action: variable
+                                                                    actionVariable: myVar
+                                                                    clearVariable: true
+                                                                    actionVariableValue: success
+                                                                  slots:
+                                                                    default:
+                                                                      - component: f7-row
+                                                                        config: {}
+                                                                        slots:
+                                                                          default:
+                                                                            - component: f7-col
+                                                                              slots:
+                                                                                default:
+                                                                                  - component: oh-repeater
+                                                                                    config:
+                                                                                      for: buttonlabel
+                                                                                      in: =props.exampleModeArray.split(",")
+                                                                                      containerStyle:
+                                                                                        width: 100%
+                                                                                    slots:
+                                                                                      default:
+                                                                                        - component: oh-button
+                                                                                          config:
+                                                                                            color: "=props.colorButton ? props.colorButton : ''"
+                                                                                            class: margin
+                                                                                            text: =loop.buttonlabel
+                                                                                            outline: true
+                                                                                            action: command
+                                                                                            active: "=props.exampleModeItem ? (items[props.exampleModeItem].state === loop.buttonlabel ? true : false) : ''"
+                                                                                            actionCommand: =loop.buttonlabel
+                                                                                            actionItem: "=props.exampleModeItem ? props.exampleModeItem : ''"
+                                              - component: oh-button
+                                                config:
+                                                  style:
+                                                    width: 30%
+                                                    height: 50%
+                                                    position: absolute
+                                                    margin-top: 0px
+                                                    top: 50%
+                                                    left: 10%
+                                                    transform: translate(-50%, -50%)
+                                                    color: "=props.colorButton ? props.colorButton : ''"
+                                                  action: command
+                                                  actionItem: =props.setPointItem
+                                                  actionCommand: "=Number(items[props.setPointItem].state.split(' ')[0]) > Number(props.minTemp) ? Number(items[props.setPointItem].state.split(' ')[0]) - 0.5 : ''"
+                                                slots:
+                                                  default:
+                                                    - component: f7-icon
+                                                      config:
+                                                        style:
+                                                          font-size: "=props.fontSizeButtons ? props.fontSizeButtons : '2em'"
+                                                          position: absolute
+                                                          transform: translate(-50%, -50%)
+                                                          top: 50%
+                                                          margin-top: auto
+                                                        f7: arrow_turn_left_down
+                                              - component: oh-button
+                                                config:
+                                                  style:
+                                                    width: 30%
+                                                    height: 50%
+                                                    position: relative
+                                                    margin-top: 0px
+                                                    top: 50%
+                                                    left: 90%
+                                                    transform: translate(-50%, -50%)
+                                                    color: "=props.colorButton ? props.colorButton : ''"
+                                                  action: command
+                                                  actionItem: =props.setPointItem
+                                                  actionCommand: "=Number(items[props.setPointItem].state.split(' ')[0]) < Number(props.maxTemp) ? Number(items[props.setPointItem].state.split(' ')[0]) + 0.5 : ''"
+                                                slots:
+                                                  default:
+                                                    - component: f7-icon
+                                                      config:
+                                                        style:
+                                                          font-size: "=props.fontSizeButtons ? props.fontSizeButtons : '2em'"
+                                                          position: absolute
+                                                          transform: translate(-50%, -50%)
+                                                          top: 50%
+                                                          margin-top: auto
+                                                        f7: arrow_turn_right_up
+                                              - component: f7-block
+                                                config:
+                                                  class: valveAnimation
+                                                  style:
+                                                    z-index: -100 !important
+                                                    pointer-events: none
+                                                    display: "=(props.valveItem && items[props.valveItem].state == 'ON' )? '' : 'none'"
+                                                    background: "=props.colorSetMarker ? 'radial-gradient(' + props.colorSetMarker +' 30%, transparent 50%)' : 'radial-gradient(var(--f7-theme-color) 30%, transparent 50%)'"
+                                                    margin-top: 0px
+                                                    position: absolute
+                                                    transform: translate(-50%, -50%)
+                                                    width: 100%
+                                                    height: 100%
+                                                    top: 50%
+                                                    left: 50%
+                                                    border-radius: 50%
+                                                    animation: skeleton-effect-fade 2s linear infinite
+                                              - component: f7-block
+                                                config:
+                                                  class: small
+                                                  style:
+                                                    z-index: 100 !important
+                                                    margin-top: 0px
+                                                    position: absolute
+                                                    width: "=props.size ? (Number(props.size)*0.375) +'px' : '57.6%'"
+                                                    height: "=props.size ? (Number(props.size)*0.375) +'px' : '57.6%'"
+                                                    background: "=props.colorCenter ? props.colorCenter : 'rgb(248, 249, 250)'"
+                                                    text-align: center
+                                                    animation: bound-in-small 0.6s ease forwards
+                                                    top: 50%
+                                                    left: 50%
+                                                    transform: translate(-50%, -50%)
+                                                    border-radius: 50%
+                                                    box-shadow: 0px 5px 10px 5px rgba(96, 93, 111,0.19)
+                                                slots:
+                                                  default:
+                                                    - component: f7-block
+                                                      config:
+                                                        class: heat
+                                                        style:
+                                                          font-size: "=props.fontSizeLocation ? props.fontSizeLocation : '1em'"
+                                                          color: "=props.colorTypo ? props.colorTypo : 'rgb(87, 84, 95)'"
+                                                          font-weight: 300
+                                                          transform: translate(-50%)
+                                                          left: 50%
+                                                          margin-top: 10%
+                                                      slots:
+                                                        default:
+                                                          - component: Label
+                                                            config:
+                                                              text: =props.location
+                                                    - component: f7-swiper
+                                                      config:
+                                                        scrollbar: false
+                                                        params:
+                                                          autoplay:
+                                                            delay: 1500
+                                                            disableOnInteraction: false
+                                                          slidesPerView: 1
+                                                          direction: vertical
+                                                          mousewheel: true
+                                                        style:
+                                                          width: 100%
+                                                          height: 100%
+                                                          position: absolute
+                                                          top: 50%
+                                                          left: 50%
+                                                          transform: translate(-50%, -50%)
+                                                          border-radius: 50%
+                                                      slots:
+                                                        default:
+                                                          - component: f7-swiper-slide
+                                                            config:
+                                                              style:
+                                                                display: "=props.humItem ? '' : 'none'"
+                                                            slots:
+                                                              default:
+                                                                - component: f7-block
+                                                                  config:
+                                                                    class: heat
+                                                                    style:
+                                                                      margin-top: 0
+                                                                      font-size: "=props.fontSizeCenter ? props.fontSizeCenter : '2em'"
+                                                                      color: "=props.colorTypo ? props.colorTypo : 'rgb(87, 84, 95)'"
+                                                                      font-weight: 300
+                                                                      position: absolute
+                                                                      transform: translate(-50%,-50%)
+                                                                      top: 50%
+                                                                      left: 50%
+                                                                      display: flex
+                                                                  slots:
+                                                                    default:
+                                                                      - component: Label
+                                                                        config:
+                                                                          text: =items[props.humItem].state
+                                                                      - component: Label
+                                                                        config:
+                                                                          text: =items[props.humItem].displayState.split(' ')[1]
+                                                                          style:
+                                                                            font-size: "=props.fontSizeCenter ? 'calc(' + props.fontSizeCenter + ' * 0.2 )' : '0.6em'"
+                                                                            vertical-align: top
+                                                          - component: f7-swiper-slide
+                                                            config:
+                                                              style:
+                                                                display: "=props.currentPointItem ? '' : 'none'"
+                                                            slots:
+                                                              default:
+                                                                - component: f7-block
+                                                                  config:
+                                                                    class: heat
+                                                                    style:
+                                                                      margin-top: 0
+                                                                      font-size: "=props.fontSizeCenter ? props.fontSizeCenter : '2em'"
+                                                                      color: "=props.colorTypo ? props.colorTypo : 'rgb(87, 84, 95)'"
+                                                                      font-weight: 300
+                                                                      position: absolute
+                                                                      transform: translate(-50%,-50%)
+                                                                      top: 50%
+                                                                      left: 50%
+                                                                      display: flex
+                                                                  slots:
+                                                                    default:
+                                                                      - component: Label
+                                                                        config:
+                                                                          text: =Number(items[props.currentPointItem].state).toFixed(1)
+                                                                      - component: Label
+                                                                        config:
+                                                                          text: "=props.unit ? props.unit : items[props.currentPointItem].displayState.split(' ')[1]"
+                                                                          style:
+                                                                            font-size: "=props.fontSizeCenter ? 'calc(' + props.fontSizeCenter + ' * 0.2 )' : '0.6em'"
+                                                                            vertical-align: top
+                                                    - component: oh-image
+                                                      config:
+                                                        url: "=props.imgUrl ? props.imgUrl : 'https://community-openhab-org.s3-eu-central-1.amazonaws.com/original/2X/7/7d388a86c95471f89b1bb911d96d7609a3e3a059.svg'"
+                                                        style:
+                                                          position: absolute
+                                                          transform: translate(-50%)
+                                                          left: 50%
+                                                          bottom: 5%
+                                                          width: 40%
+                                  - component: f7-swiper-slide
                                     config:
-                                      class: heat
                                       style:
-                                        font-size: "=props.fontSizeCenter ? props.fontSizeCenter : '2em'"
-                                        color: "=props.colorTypo ? props.colorTypo : 'rgb(87, 84, 95)'"
-                                        font-weight: 300
+                                        width: 100%
+                                        height: 100%
+                                        display: "=props.chartSwitch ? '' : 'none'"
                                     slots:
                                       default:
-                                        - component: Label
+                                        - component: f7-block
                                           config:
-                                            text: "=props.unit ? items[props.setPointItem].state.split(' ')[0] + '' + props.unit : items[props.setPointItem].state.split(' ')[0]"
-                                  - component: oh-image
+                                            class: page
+                                            style:
+                                              background: transparent
+                                              margin-top: 0px
+                                              position: absolute
+                                              width: 100%
+                                              height: 100%
+                                              top: 50%
+                                              left: 50%
+                                              transform: translate(-50%, -50%)
+                                              border-radius: 50%
+                                          slots:
+                                            default:
+                                              - component: oh-chart
+                                                config:
+                                                  height: 100%
+                                                  periodVisible: false
+                                                  period: 12h
+                                                slots:
+                                                  title:
+                                                    - component: oh-chart-title
+                                                      config:
+                                                        text: 12h
+                                                        left: center
+                                                        bottom: 10%
+                                                        textStyle:
+                                                          fontSize: 1em
+                                                          fontWeight: normal
+                                                  grid:
+                                                    - component: oh-chart-grid
+                                                      config:
+                                                        show: true
+                                                        borderWidth: 0
+                                                        top: 20%
+                                                        left: 15%
+                                                        right: 15%
+                                                        height: 60%
+                                                  xAxis:
+                                                    - component: oh-time-axis
+                                                      config:
+                                                        show: true
+                                                        gridIndex: 0
+                                                        name: Uhrzeit
+                                                        boundaryGap: false
+                                                        axisLine:
+                                                          onZero: true
+                                                        axisTick:
+                                                          show: false
+                                                        axisLabel:
+                                                          show: false
+                                                        axisPointer:
+                                                          label:
+                                                            show: false
+                                                  yAxis:
+                                                    - component: oh-value-axis
+                                                      config:
+                                                        show: false
+                                                        gridIndex: 0
+                                                        min: auto
+                                                        max: auto
+                                                        name: Temperatur
+                                                        nameLocation: center
+                                                        nameGap: 45
+                                                        axisLabel:
+                                                          formatter: "{value} °C"
+                                                  series:
+                                                    - component: oh-time-series
+                                                      config:
+                                                        data:
+                                                          name: istTemp
+                                                        name: Ist Temp. Indoor
+                                                        gridIndex: 0
+                                                        xAxisIndex: 0
+                                                        yAxisIndex: 0
+                                                        type: line
+                                                        item: "=props.currentPointItem ? props.currentPointItem : ''"
+                                                        markPoint:
+                                                          itemStyle:
+                                                            color: "=props.colorCurrentMarker ? props.colorCurrentMarker : 'rgb(33, 150, 243)'"
+                                                          data:
+                                                            - type: max
+                                                              name: Höchsttemperatur
+                                                            - type: min
+                                                              name: Tiefsttemperatur
+                                                        smooth: true
+                                                        lineStyle:
+                                                          color: "=props.colorCurrentMarker ? props.colorCurrentMarker : 'rgb(33, 150, 243)'"
+                                                    - component: oh-time-series
+                                                      config:
+                                                        name: Soll Temp. Indoor
+                                                        gridIndex: 0
+                                                        xAxisIndex: 0
+                                                        yAxisIndex: 0
+                                                        type: line
+                                                        item: "=props.setPointItem ? props.setPointItem : ''"
+                                                        step: end
+                                                        lineStyle:
+                                                          color: "=props.colorSetMarker ? props.colorSetMarker : 'rgb(230, 74, 25)'"
+                                  - component: f7-swiper-slide
                                     config:
-                                      url: "=props.imgUrl ? props.imgUrl : 'https://community-openhab-org.s3-eu-central-1.amazonaws.com/original/2X/7/7d388a86c95471f89b1bb911d96d7609a3e3a059.svg'"
                                       style:
-                                        position: absolute
-                                        transform: translate(-50%)
-                                        left: 50%
-                                        width: 40%
+                                        width: 100%
+                                        height: 100%
+                                        display: "=(props.extensionItem1 || props.extensionItem2)? '' : 'none'"
+                                    slots:
+                                      default:
+                                        - component: f7-block
+                                          config:
+                                            class: page
+                                            style:
+                                              font-size: "=props.fontSizeLocation ? props.fontSizeLocation : '1em'"
+                                              background: transparent
+                                              margin-top: 0px
+                                              position: absolute
+                                              width: 100%
+                                              height: 100%
+                                              top: 50%
+                                              left: 50%
+                                              transform: translate(-50%, -50%)
+                                              border-radius: 50%
+                                          slots:
+                                            default:
+                                              - component: Label
+                                                config:
+                                                  text: Extension Items
+                                                  style:
+                                                    margin-top: 5%
+                                                    margin-bottom: 5%
+                                                    text-align: center
+                                              - component: oh-repeater
+                                                config:
+                                                  for: i
+                                                  sourceType: range
+                                                  rangeStart: "=props.extensionItem1 ? Number(1) : (!props.extensionItem1 && props.extensionItem2) ? Number(2) : ''"
+                                                  rangeStop: "=(props.extensionItem1 && props.extensionItem2) ? Number(2) : (props.extensionItem1 && !props.extensionItem2) ? Number(1) : Number(2)"
+                                                slots:
+                                                  default:
+                                                    - component: f7-block
+                                                      config:
+                                                        style:
+                                                          display: flex
+                                                          flex-flow: row wrap
+                                                          padding: 0 5% 0 5%
+                                                          justify-content: space-evenly
+                                                          align-items: center
+                                                      slots:
+                                                        default:
+                                                          - component: f7-icon
+                                                            config:
+                                                              style:
+                                                                min-width: 40px
+                                                                line-height: 2
+                                                              size: 2em
+                                                              f7: '=props["extensionItem" + loop.i + "Icon"] ? ((Number.parseInt(items[props["extensionItem" + loop.i]].state) > 75) ? props["extensionItem" + loop.i + "Icon"].split(",")[0] : (Number.parseInt(items[props["extensionItem" + loop.i]].state) > 25) ? props["extensionItem" + loop.i + "Icon"].split(",")[1] : props["extensionItem" + loop.i + "Icon"].split(",")[2]) : "clear"'
+                                                              color: '=(Number.parseInt(items[props["extensionItem" + loop.i]].state) > 75) ? "green" : (Number.parseInt(items[props["extensionItem" + loop.i]].state) > 25) ? "yellow" : "red"'
+                                                          - component: f7-badge
+                                                            config:
+                                                              style:
+                                                                line-height: 3
+                                                                font-size: 1em
+                                                                min-width: 30px
+                                                                margin: 0 5px 0 5px
+                                                              color: '=(Number.parseInt(items[props["extensionItem" + loop.i]].state) > 75) ? "green" : (Number.parseInt(items[props["extensionItem" + loop.i]].state) > 25) ? "yellow" : "red"'
+                                                            slots:
+                                                              default:
+                                                                - component: Label
+                                                                  config:
+                                                                    text: =items[props["extensionItem" + loop.i]].displayState
