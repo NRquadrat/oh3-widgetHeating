@@ -1,4 +1,4 @@
-uid: widget_HeatingCSS_2.0.0
+uid: widget_HeatingCSS_2.0.1
 tags: []
 props:
   parameters:
@@ -939,10 +939,10 @@ slots:
                                                                     default:
                                                                       - component: Label
                                                                         config:
-                                                                          text: =items[props.humItem].state
+                                                                          text: =items[props.humItem].state.split(' ')[0]
                                                                       - component: Label
                                                                         config:
-                                                                          text: =items[props.humItem].displayState.split(' ')[1]
+                                                                          text: =items[props.humItem].state.split(' ')[1]
                                                                           style:
                                                                             font-size: "=props.fontSizeCenter ? 'calc(' + props.fontSizeCenter + ' * 0.2 )' : '0.6em'"
                                                                             vertical-align: top
@@ -969,10 +969,10 @@ slots:
                                                                     default:
                                                                       - component: Label
                                                                         config:
-                                                                          text: =Number(items[props.currentPointItem].state).toFixed(1)
+                                                                          text: =Number(items[props.currentPointItem].state.split(' ')[0]).toFixed(1)
                                                                       - component: Label
                                                                         config:
-                                                                          text: "=props.unit ? props.unit : items[props.currentPointItem].displayState.split(' ')[1]"
+                                                                          text: "=props.unit ? props.unit : items[props.currentPointItem].state.split(' ')[1]"
                                                                           style:
                                                                             font-size: "=props.fontSizeCenter ? 'calc(' + props.fontSizeCenter + ' * 0.2 )' : '0.6em'"
                                                                             vertical-align: top
@@ -1162,4 +1162,4 @@ slots:
                                                               default:
                                                                 - component: Label
                                                                   config:
-                                                                    text: =items[props["extensionItem" + loop.i]].displayState
+                                                                    text: =items[props["extensionItem" + loop.i]].state
